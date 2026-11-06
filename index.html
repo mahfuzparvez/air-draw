@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirDraw - Gesture Based Drawing</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- MediaPipe Scriptসমূহ -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="container">
+        <!-- কন্ট্রোল প্যানেল (সাইডবার) -->
+        <div class="control-panel">
+            <h2>AirDraw</h2>
+            
+            <!-- কালার প্যালেট -->
+            <div class="section">
+                <label>Select the Colour:</label>
+                <div class="color-options">
+                    <button class="color-btn active" style="background-color: #ffff;" data-color="#ffff"></button>
+                    <button class="color-btn" style="background-color: #ff4757;" data-color="#ff4757"></button>
+                    <button class="color-btn" style="background-color: #2ed573;" data-color="#2ed573"></button>
+                    <button class="color-btn" style="background-color: #1e90ff;" data-color="#1e90ff"></button>
+                    <button class="color-btn" style="background-color: #ffa502;" data-color="#ffa502"></button>
+                </div>
+            </div>
+
+            <!-- ব্রাশ সাইজ -->
+            <div class="section">
+                <label for="brushSize">Brush Size:</label>
+                <input type="range" id="brushSize" min="1" max="50" value="5">
+            </div>
+
+            <!-- মোড ও অ্যাকশন বোতামসমূহ -->
+            <div class="section actions">
+                <button id="eraserBtn" class="btn">Eraser</button>
+                <button id="clearBtn" class="btn danger">Cleanner</button>
+                <button id="saveBtn" class="btn success">Save PNG</button>
+            </div>
+        </div>
+
+        <!-- ড্রয়িং এবং ভিডিও এরিয়া -->
+        <div class="canvas-container">
+            <!-- ওয়েব্যাক্যাম ভিডিও (লুকানো বা ব্যাকগ্রাউন্ডে রাখা হয়) -->
+            <video id="webcam" autoplay playsinline></video>
+            <!-- মূল ক্যানভাস যেখানে আঁকা হবে -->
+            <canvas id="outputCanvas"></canvas>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
